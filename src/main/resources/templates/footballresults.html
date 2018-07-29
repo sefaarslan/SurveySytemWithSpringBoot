@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" type="text/css" media="all" href="../../css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
+
+    <script type="text/javascript" th:src="@{/js/jquery.min.js}" src="js/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/bootstrap.min.js}" src="js/bootstrap.min.js"></script>
+
+    
+ <title>Survey System</title>
+</head>
+<body>
+
+
+	<div class="container">
+		 <h1>Football Survey</h1>
+				<table class="table ">
+					<thead>
+						<tr>
+					    	<th>Name</th>
+							<th>Surname</th>
+							<th>Gender</th>
+							<th>Birthdate</th>
+							<th>Favourite Team</th>
+							<th>Explanation</th>
+							</tr>
+					</thead>
+			 	  <tbody th:each="FootballSurvey : ${allfootballsurvey}">
+						    <tr>
+						        <td th:text="${FootballSurvey.name}"></td>
+							<td th:text="${FootballSurvey.surname}"></td>
+							<td th:text="${FootballSurvey.gender}"></td>
+							 <td th:text="${FootballSurvey.birthdate}"></td>
+							<td th:text="${FootballSurvey.team}"></td>
+							<td th:text="${FootballSurvey.explanation}"></td>
+ 					 
+					</tbody>
+				</table>
+				<a th:href="@{/footballsurvey}"  class="btn btn-primary">Add Participant</a>
+				 <a th:href="@{/home}"  class="btn btn-primary">Home</a>
+			
+	</div>
+	
+	
+</body>
+</html>
