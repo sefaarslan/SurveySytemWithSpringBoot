@@ -27,6 +27,17 @@ public class FootballServiceImpl implements FootballService{
 		return footballdao.findAll();
 	}
 
+	@Override
+	public FootballSurvey findOne(int id) {
+		// TODO Auto-generated method stub
+		return footballdao.getOne(id);
+	}
+
+	@Override
+	public void delete(int id) {
+		 footballdao.deleteById(id);
+		
+	}
 
 	
 	

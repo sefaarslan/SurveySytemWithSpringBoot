@@ -9,4 +9,7 @@ public interface FootballService {
 
 	void save(FootballSurvey fparticipant);
 	List<FootballSurvey> getFootballSurveyList();
+	FootballSurvey findOne(int id);
+ 
+    void delete(int id);
 }

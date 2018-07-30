@@ -18,7 +18,7 @@
 				<table class="table ">
 					<thead>
 						<tr>
-						<th>Id</th>
+						
 					    	<th>Name</th>
 							<th>Surname</th>
 							<th>Gender</th>
@@ -31,7 +31,6 @@
 					</thead>
 			 	  <tbody th:each="SatisfactionSurvey : ${allsatisfactionsurvey}">
 						    <tr>
-						     <td th:text="${SatisfactionSurvey.id}"></td>
 						        <td th:text="${SatisfactionSurvey.name}"></td>
 							<td th:text="${SatisfactionSurvey.surname}"></td>
 							<td th:text="${SatisfactionSurvey.gender}"></td>
@@ -41,6 +40,8 @@
 							<td th:text="${SatisfactionSurvey.explanation}"></td>
 							<td th:text="${SatisfactionSurvey.pollster_name}"></td>
 							<td th:text="${SatisfactionSurvey.pollster_surname}"></td>
+							<td><a th:href="@{'/editsatisfaction/' +${SatisfactionSurvey.id}}"  class="btn btn-primary">Edit</a> 
+ 							<td><a th:href="@{'/deletesatisfaction/' +${SatisfactionSurvey.id}}"  class="btn btn-primary">Delete</a> 	
  					 
 					</tbody>
 				</table>

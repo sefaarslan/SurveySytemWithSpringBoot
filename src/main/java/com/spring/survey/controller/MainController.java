@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -43,8 +44,6 @@ public class MainController {
 			model.addAttribute("allsatisfactionsurvey", satisfactionsurvey);
 			return "satisfactionresults";
 		}
-
-	
 	
     @RequestMapping(value = "footballsurvey", method = RequestMethod.GET)
     public String list(Model model) {
@@ -56,6 +55,10 @@ public class MainController {
         model.addAttribute("satisfactionsurvey", new SatisfactionSurvey());
         return "satisfactionsurvey";
     }
+    
+ // ------------------------------
+    
+    
 	@RequestMapping(value = "/savefootball", method = RequestMethod.POST)
     public String saveFootball( FootballSurvey FootballSurvey) {
         fservice.save(FootballSurvey);
@@ -67,5 +70,53 @@ public class MainController {
         sservice.save(SatisfactionSurvey);
         return "redirect:/satisfactionresults" ;
     }
+	
+ // ------------------------------
+	 @RequestMapping(value={"/editfootball/{id}"}, method = RequestMethod.GET)
+	    public String EditForm(Model model, @PathVariable(required = false, name = "id") Integer id) {
+	        
+	            model.addAttribute("editfootball", fservice.findOne(id));
+	         
+	        return "editfootball";
+	    }
 
+	 @RequestMapping(value="/editfootball", method = RequestMethod.POST)
+	    public String Edit(Model model,FootballSurvey FootballSurvey) {
+	    	fservice.save(FootballSurvey);
+	        model.addAttribute("editfootball", fservice.getFootballSurveyList());
+	        return "redirect:/footballresults";
+	    }
+	 
+	 @RequestMapping(value="/deletefootball/{id}", method = RequestMethod.GET)
+	    public String Delete(Model model, @PathVariable(required = true, name = "id") int id) {
+	    	fservice.delete(id);
+	        model.addAttribute("deletefootball", fservice.getFootballSurveyList());
+	        return "redirect:/footballresults";
+	    }
+	 
+	// ------------------------------
+	 
+	 
+	 
+	 @RequestMapping(value={"/editsatisfaction/{id}"}, method = RequestMethod.GET)
+	    public String editSatisfaction(Model model, @PathVariable(required = false, name = "id") Integer id) {
+	        
+	            model.addAttribute("editsatisfaction", sservice.findOne(id));
+	         
+	        return "editsatisfaction";
+	    }
+
+	 @RequestMapping(value="/editsatisfaction", method = RequestMethod.POST)
+	    public String Edit2(Model model,SatisfactionSurvey SatisfactionSurvey) {
+	    	sservice.save(SatisfactionSurvey);
+	        model.addAttribute("editsatisfaction", sservice.getSatisfactionSurveyList());
+	        return "redirect:/satisfactionresults";
+	    }
+	 
+	 @RequestMapping(value="/deletesatisfaction/{id}", method = RequestMethod.GET)
+	    public String deleteSatisfaction(Model model, @PathVariable(required = true, name = "id") int id) {
+	    	sservice.delete(id);
+	        model.addAttribute("deletesatisfaction", sservice.getSatisfactionSurveyList());
+	        return "redirect:/satisfactionresults";
+	    }
 }

@@ -25,6 +25,8 @@
 							<th>Birthdate</th>
 							<th>Favourite Team</th>
 							<th>Explanation</th>
+							<th>Pollster Name</th>
+							<th>Pollster Surname</th>
 							</tr>
 					</thead>
 			 	  <tbody th:each="FootballSurvey : ${allfootballsurvey}">
@@ -35,7 +37,10 @@
 							 <td th:text="${FootballSurvey.birthdate}"></td>
 							<td th:text="${FootballSurvey.team}"></td>
 							<td th:text="${FootballSurvey.explanation}"></td>
- 					 
+							<td th:text="${FootballSurvey.pollster_name}"></td>
+							<td th:text="${FootballSurvey.pollster_surname}"></td>
+ 							<td><a th:href="@{'/editfootball/' +${FootballSurvey.id}}"  class="btn btn-primary">Edit</a> 
+ 							<td><a th:href="@{'/deletefootball/' +${FootballSurvey.id}}"  class="btn btn-primary">Delete</a> 					 
 					</tbody>
 				</table>
 				<a th:href="@{/footballsurvey}"  class="btn btn-primary">Add Participant</a>

@@ -1,6 +1,7 @@
 package com.spring.survey.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,22 @@ public class SatisfactionServiceImpl implements	SatisfactionService {
 		// TODO Auto-generated method stub
 		return satisfactiondao.findAll();
 	}
+
+	@Override
+	public SatisfactionSurvey findOne(int id) {
+		// TODO Auto-generated method stub
+		return satisfactiondao.getOne(id);
+	}
+
+	@Override
+	public void delete(int id) {
+	  satisfactiondao.deleteById(id);
+		
+	}
+
+	
+
+	
 
 	
 
