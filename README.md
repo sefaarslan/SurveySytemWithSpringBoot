@@ -1,7 +1,7 @@
 # SurveySytemWithSpringBoot
 Spring Boot ,Spring Data, Hibernate 
 
-Case :
+Case Information :
 
 Merkezi Mecidiyeköy' de bulunan araştırma şirketi "Anket A.Ş.":
 
@@ -17,18 +17,10 @@ girişlerde oluşan hatalardan dolayı araştırmaların doğruluk payları azal
 
 "Anket A.Ş." nin bizden talebi;
 
- 
+ Anketçilerin Executable Java Archive ı çalıştırarak anketlerden birini seçmeleri ve command line ile formu doldurarak sisteme kaydetmeleri.
+Firma başlangıç olarak aşağıdaki formların yeterli olacağını söyledi:  
 
-                Anketçilerin Executable Java Archive ı çalıştırarak anketlerden birini seçmeleri ve
-
-                command line ile formu doldurarak sisteme kaydetmeleri.
-
-               
-
-                Firma başlangıç olarak aşağıdaki formların yeterli olacağını söyledi:           
-
- 
-
+                 
 --------------------------------
 
 Anket Toplama Merkezi
